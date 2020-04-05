@@ -1,7 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableHighlight,
+} from "react-native";
 
 export default class Input extends React.Component {
+  fetchData() {
+    console.log("Input Value: ", this.props.value);
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -11,6 +20,12 @@ export default class Input extends React.Component {
           value={this.props.value}
           onChangeText={(text) => this.props.onChange(text)}
         />
+        <TouchableHighlight
+          style={styles.button}
+          onPress={() => this.fetchData()}
+        >
+          <Text style={styles.text}>Search</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -29,5 +44,16 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 2,
     margin: 5,
+  },
+  button: {
+    width: 100,
+    height: 40,
+    backgroundColor: "blue",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 5,
+  },
+  text: {
+    color: "white",
   },
 });
