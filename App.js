@@ -5,11 +5,13 @@ import Input from "./Component/Input/Input";
 export default class App extends React.Component {
   state = {
     value: "",
+    jokes: [],
   };
   render() {
     return (
       <View style={styles.container}>
         <Input
+          updateJokes={(jokes) => this.setState({ jokes: jokes })}
           value={this.state.value}
           onChange={(value) => this.setState({ value: value })}
         />

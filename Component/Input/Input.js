@@ -10,6 +10,11 @@ import {
 export default class Input extends React.Component {
   fetchData() {
     console.log("Input Value: ", this.props.value);
+    fetch("http://api.icndb.com/jokes/random/${this.props.value}")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => this.props.updateJokes(data.value));
   }
   render() {
     return (
@@ -44,6 +49,7 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 2,
     margin: 5,
+    paddingStart: 10,
   },
   button: {
     width: 100,
