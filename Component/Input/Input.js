@@ -9,8 +9,7 @@ import {
 
 export default class Input extends React.Component {
   fetchData() {
-    console.log("Input Value: ", this.props.value);
-    fetch("http://api.icndb.com/jokes/random/${this.props.value}")
+    fetch(`http://api.icndb.com/jokes/random/${this.props.value}`)
       .then((response) => {
         return response.json();
       })

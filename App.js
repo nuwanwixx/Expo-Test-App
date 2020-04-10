@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import Input from "./Component/Input/Input";
+import CardSwipe from "./Component/CardSwipe/CardSwipe";
 
 export default class App extends React.Component {
   state = {
@@ -15,6 +16,7 @@ export default class App extends React.Component {
           value={this.state.value}
           onChange={(value) => this.setState({ value: value })}
         />
+        <CardSwipe jokes={this.state.jokes} />
       </View>
     );
   }
